@@ -9,7 +9,7 @@ import {
   SunshineContextType,
   CastContext,
   castZkAppWorkerClient,
-  AppContext
+  AppContext,
 } from "../components/AppContext";
 
 import Layout from "../components/Layout";
@@ -109,7 +109,7 @@ async function connectWallet(context: SunshineContextType) {
 
       await context.setState({
         ...context.state,
-        connectedAddress: publicKeyBase58[0]
+        connectedAddress: publicKeyBase58[0],
       });
       await context.setConnectionButtonState(2);
     } catch (e: any) {
@@ -135,8 +135,8 @@ export default function App({ Component, pageProps }: AppProps) {
     connectWallet: connectWallet,
     txstage: "",
     txhash: "",
-    connectedAddress: ""
-  }
+    connectedAddress: "",
+  };
   let [state, setState] = useState(initial_state);
   let [compilationButtonState, setCompilationButtonState] = useState(0);
   let [connectionButtonState, setConnectionButtonState] = useState(0);
@@ -148,7 +148,7 @@ export default function App({ Component, pageProps }: AppProps) {
         compilationButtonState,
         setCompilationButtonState,
         connectionButtonState,
-        setConnectionButtonState
+        setConnectionButtonState,
       }}
     >
       <Layout>

@@ -31,8 +31,8 @@ const functions = {
     const Network = Mina.Network(args.endpoint);
     Mina.setActiveInstance(Network);
   },
-    loadContract: async (args: {}) => {
-        /*
+  loadContract: async (args: {}) => {
+    /*
     const { Quest } = await import("../../../contracts/build/src/Quest.js");
     if (Quest === null) {
       throw Error("Quest type is null");
@@ -48,10 +48,10 @@ const functions = {
     state.Solution = Solution;
     */
   },
-    compileContract: async (args: {}) => {
-        console.log('worker compiling');
-        await state.Quest!.compile();
-        console.log('worker compiled');
+  compileContract: async (args: {}) => {
+    console.log("worker compiling");
+    await state.Quest!.compile();
+    console.log("worker compiled");
   },
   fetchAccount: async (args: { publicKey58: string }) => {
     const pk = PublicKey.fromBase58(args.publicKey58);
@@ -62,13 +62,19 @@ const functions = {
     state.zkapp = new state.Quest!(publicKey);
   },
   getContractState: async (args: {}) => {
-      const commitment: Field = await state.zkapp!.commitment.get();
-      console.log('worker: commitment is', commitment);
-      console.log('worker: balance is', state.zkapp!.account.balance.get().toBigInt());
-      console.log('worker: balance is', state.zkapp!.account.balance.get().toString());
+    const commitment: Field = await state.zkapp!.commitment.get();
+    console.log("worker: commitment is", commitment);
+    console.log(
+      "worker: balance is",
+      state.zkapp!.account.balance.get().toBigInt()
+    );
+    console.log(
+      "worker: balance is",
+      state.zkapp!.account.balance.get().toString()
+    );
     return JSON.stringify({
       commitment: commitment.toString(),
-        prize: Number(state.zkapp!.account.balance.get().toBigInt()),
+      prize: Number(state.zkapp!.account.balance.get().toBigInt()),
     });
   },
   createDeployTransaction: async (args: {
@@ -91,7 +97,7 @@ const functions = {
       async () => {
         AccountUpdate.fundNewAccount(feePayer);
         await state.zkapp!.deploy();
-          await state.zkapp!.initialize(_commitment);
+        await state.zkapp!.initialize(_commitment);
         const account_update = AccountUpdate.createSigned(feePayer);
         account_update.send({
           to: zkAppPublicKey,
@@ -117,22 +123,22 @@ const functions = {
     );
     state.solution = new state.Solution!(zkAppPublicKey, args.answers);
   },
-    getCommitmentFromSolution: async (args: {
-        contractPublicKey58: string;
-        answers: string[];
-    }) => {
-        const zkAppPublicKey: PublicKey = PublicKey.fromBase58(
-            args.contractPublicKey58
-        );
-        console.log('args publickey', args.contractPublicKey58);
-        console.log('args answers', args.answers);
-        let solution: Solution = new state.Solution!(zkAppPublicKey, args.answers);
-        console.log('worker ', solution);
-        console.log('worker solution solution ', solution.solution());
-        console.log('worker solution commitment ', solution.commitment());
+  getCommitmentFromSolution: async (args: {
+    contractPublicKey58: string;
+    answers: string[];
+  }) => {
+    const zkAppPublicKey: PublicKey = PublicKey.fromBase58(
+      args.contractPublicKey58
+    );
+    console.log("args publickey", args.contractPublicKey58);
+    console.log("args answers", args.answers);
+    let solution: Solution = new state.Solution!(zkAppPublicKey, args.answers);
+    console.log("worker ", solution);
+    console.log("worker solution solution ", solution.solution());
+    console.log("worker solution commitment ", solution.commitment());
 
-        return solution.commitment().toString();
-    },
+    return solution.commitment().toString();
+  },
   fundPrize: async (args: {
     actorPublicKey58: string;
     contractPublicKey58: string;

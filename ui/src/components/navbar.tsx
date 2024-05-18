@@ -5,20 +5,36 @@ const CircuitCompileButton = () => {
   const context: SunshineContextType = CastContext();
   if (context.compilationButtonState === 0) {
     return (
-      <button className="btn" onClick={() => {
-        console.log('run load o1js clicked');
-        context.state.runLoadO1js(context);
-      }}>Load o1js</button>
+      <button
+        className="btn"
+        onClick={() => {
+          console.log("run load o1js clicked");
+          context.state.runLoadO1js(context);
+        }}
+      >
+        Load o1js
+      </button>
     );
   } else if (context.compilationButtonState === 1) {
-    return <button className="btn btn-disabled animate-pulse">Loading o1js</button>;
+    return (
+      <button className="btn btn-disabled animate-pulse">Loading o1js</button>
+    );
   } else if (context.compilationButtonState === 2) {
-    return <button className="btn" onClick={() => {
-      console.log('run compile clicked');
-      context.state.runCompile(context);
-    }}>Compile</button>;
+    return (
+      <button
+        className="btn"
+        onClick={() => {
+          console.log("run compile clicked");
+          context.state.runCompile(context);
+        }}
+      >
+        Compile
+      </button>
+    );
   } else if (context.compilationButtonState === 3) {
-    return <button className="btn btn-disabled animate-pulse">Compiling</button>;
+    return (
+      <button className="btn btn-disabled animate-pulse">Compiling</button>
+    );
   } else {
     return <button className="btn btn-disabled">Compiled</button>;
   }
@@ -27,12 +43,21 @@ const CircuitCompileButton = () => {
 const ConnectButton = () => {
   const context: SunshineContextType = CastContext();
   if (context.connectionButtonState === 0) {
-    return <button className="btn" onClick={() => {
-      console.log('run wallet connect clicked');
-      context.state.connectWallet(context);
-    }}>Connect</button>;
+    return (
+      <button
+        className="btn"
+        onClick={() => {
+          console.log("run wallet connect clicked");
+          context.state.connectWallet(context);
+        }}
+      >
+        Connect
+      </button>
+    );
   } else if (context.connectionButtonState === 1) {
-    return <button className="btn btn-disabled animate-pulse">Connecting</button>;
+    return (
+      <button className="btn btn-disabled animate-pulse">Connecting</button>
+    );
   } else {
     return <button className="btn btn-disabled">Connected</button>;
   }

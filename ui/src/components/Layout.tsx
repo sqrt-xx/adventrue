@@ -43,15 +43,12 @@ const Layout = ({ children }: { children: ReactNode }) => {
                 rel="noreferrer"
               >
                 Marek
-              </a>,{" "}
-              Midori, Pete and zkGeorge for {" "}
-              <a
-                href="zkkrakow.com"
-                target="_blank"
-                rel="noreferrer"
-              >
+              </a>
+              , Midori, Pete and zkGeorge for{" "}
+              <a href="zkkrakow.com" target="_blank" rel="noreferrer">
                 zkHack Krakow
-              </a>.
+              </a>
+              .
             </p>
           </div>
           <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">

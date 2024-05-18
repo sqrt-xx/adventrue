@@ -1,14 +1,9 @@
-import {
-  PublicKey
-} from "o1js";
+import { PublicKey } from "o1js";
 
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-import {
-  SunshineContextType,
-  CastContext
-} from "../../components/AppContext";
+import { SunshineContextType, CastContext } from "../../components/AppContext";
 
 import {
   InformO1JSCompilation,
@@ -17,28 +12,28 @@ import {
   RenderAnswer,
   RenderSolution,
   InformTXBuilding,
-  InformTXHash
+  InformTXHash,
 } from "../../components/Info";
 
 import {
   ComponentAnswerReset,
   ComponentAnswerEditor,
-  ComponentAnswerAdd
+  ComponentAnswerAdd,
 } from "../../components/editing";
 
 import {
   ComponentLoadContract,
-  ComponentSolve
+  ComponentSolve,
 } from "../../components/interaction";
 
 export default function Solve() {
   const context: SunshineContextType = CastContext();
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     let slug: string | undefined;
 
-    if (typeof router.query.slug === 'string') {
+    if (typeof router.query.slug === "string") {
       slug = router.query.slug;
     } else if (Array.isArray(router.query.slug)) {
       slug = router.query.slug[0]; // or handle array case as needed
@@ -63,17 +58,18 @@ export default function Solve() {
     <article className="container gap-8 prose">
       <h1>Solve an existing puzzle</h1>
       <p>Contract address: {router.query.slug}</p>
-      <InformAddressCorrect/>
-      <InformO1JSCompilation/>
-      <InformConnectWallet/>
-      <RenderAnswer/>
-      <ComponentAnswerEditor/>
-      <ComponentAnswerReset/>
-      <ComponentAnswerAdd/>
-      <RenderSolution/>
-      <ComponentLoadContract/>
-      <InformTXBuilding/>
-      <InformTXHash/>
-      <ComponentSolve/>
-    </article>);
+      <InformAddressCorrect />
+      <InformO1JSCompilation />
+      <InformConnectWallet />
+      <RenderAnswer />
+      <ComponentAnswerEditor />
+      <ComponentAnswerReset />
+      <ComponentAnswerAdd />
+      <RenderSolution />
+      <ComponentLoadContract />
+      <InformTXBuilding />
+      <InformTXHash />
+      <ComponentSolve />
+    </article>
+  );
 }

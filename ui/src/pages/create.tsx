@@ -1,7 +1,4 @@
-import {
-  SunshineContextType,
-  CastContext
-} from "../components/AppContext";
+import { SunshineContextType, CastContext } from "../components/AppContext";
 
 import {
   InformO1JSCompilation,
@@ -9,7 +6,7 @@ import {
   RenderAnswer,
   RenderSK,
   InformTXBuilding,
-  InformTXHash
+  InformTXHash,
 } from "../components/Info";
 
 import {
@@ -17,29 +14,28 @@ import {
   ComponentAnswerEditor,
   ComponentAnswerAdd,
   ComponentGenerateSK,
-  ComponentPrizeEditor
+  ComponentPrizeEditor,
 } from "../components/editing";
 
-import {
-  ComponentButtonDeploy
-} from "../components/interaction";
+import { ComponentButtonDeploy } from "../components/interaction";
 
 export default function Create() {
   return (
     <article className="container gap-8 prose">
       <h1>Create a new puzzle</h1>
-      <InformO1JSCompilation/>
-      <InformConnectWallet/>
-      <RenderAnswer/>
-      <ComponentAnswerEditor/>
-      <ComponentAnswerReset/>
-      <ComponentAnswerAdd/>
+      <InformO1JSCompilation />
+      <InformConnectWallet />
+      <RenderAnswer />
+      <ComponentAnswerEditor />
+      <ComponentAnswerReset />
+      <ComponentAnswerAdd />
       <p>The MINA prize is:</p>
-      <ComponentPrizeEditor/>
-        <RenderSK/>
-        <ComponentGenerateSK/>
-        <InformTXBuilding/>
-        <InformTXHash/>
-        <ComponentButtonDeploy/>
-    </article>);
+      <ComponentPrizeEditor />
+      <RenderSK />
+      <ComponentGenerateSK />
+      <InformTXBuilding />
+      <InformTXHash />
+      <ComponentButtonDeploy />
+    </article>
+  );
 }

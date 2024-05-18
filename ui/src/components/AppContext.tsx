@@ -30,7 +30,7 @@ export type SunshineContextStateType = {
   txstage: string;
   txhash: string;
   connectedAddress: string;
-}
+};
 
 export type SunshineContextType = {
   state: SunshineContextStateType;
@@ -39,12 +39,12 @@ export type SunshineContextType = {
   setCompilationButtonState: Function;
   connectionButtonState: number;
   setConnectionButtonState: Function;
-}
+};
 
 export type ContractStateType = {
-  commitment: string,
-  prize: number
-}
+  commitment: string;
+  prize: number;
+};
 
 export const AppContext = createContext<SunshineContextType | null>(null);
 
@@ -57,11 +57,11 @@ export function CastContext(): SunshineContextType {
 }
 
 export function castZkAppWorkerClient(
-  context: SunshineContextType,
+  context: SunshineContextType
 ): ZkappWorkerClient {
   if (context.state.zkappWorkerClient === null) {
     throw Error(
-      "context.state.zkappWorkerClient is not defined, first load snarkyjs library",
+      "context.state.zkappWorkerClient is not defined, first load snarkyjs library"
     );
   }
   return context.state.zkappWorkerClient;

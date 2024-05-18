@@ -1,9 +1,6 @@
-import {
-  PublicKey,
-  PrivateKey
-} from "o1js";
+import { PublicKey, PrivateKey } from "o1js";
 
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 import {
   SunshineContextType,
@@ -14,31 +11,34 @@ import {
 
 import ZkappWorkerClient from "../pages/zkAppWorkerClient";
 
-
 async function contractRefreshState(context: SunshineContextType) {
   const zkappWorkerClient: ZkappWorkerClient = castZkAppWorkerClient(context);
 
   // load contract
   const zkappPublicKey: PublicKey = PublicKey.fromBase58(
-    context.state.zkappPublicKeyBase58);
+    context.state.zkappPublicKeyBase58
+  );
 
   // await zkappWorkerClient.fetchAccount(zkappPublicKey);
   await zkappWorkerClient.fetchAccount(zkappPublicKey);
   await zkappWorkerClient.initZkappInstance(zkappPublicKey);
   // refresh the contract state
   const contract_state = await zkappWorkerClient.getContractState();
-  console.log('contract state is', contract_state);
+  console.log("contract state is", contract_state);
   const contract_state_parsed = JSON.parse(contract_state) as ContractStateType;
-  console.log('contract state parsed is', contract_state_parsed);
+  console.log("contract state parsed is", contract_state_parsed);
 
-  let ref_commitment: string = await zkappWorkerClient.getCommitmentFromSolution(
-    zkappPublicKey, context.state.solution);
-  console.log('ref commitment is', ref_commitment);
+  let ref_commitment: string =
+    await zkappWorkerClient.getCommitmentFromSolution(
+      zkappPublicKey,
+      context.state.solution
+    );
+  console.log("ref commitment is", ref_commitment);
   context.setState({
     ...context.state,
     commitment: contract_state_parsed.commitment,
     prize: contract_state_parsed.prize,
-    correct: contract_state_parsed.commitment === ref_commitment
+    correct: contract_state_parsed.commitment === ref_commitment,
   });
 }
 
@@ -47,7 +47,7 @@ export async function contractDeploy(context: SunshineContextType) {
   const transactionFee = 0.1;
   await context.setState({
     ...context.state,
-    txstage: "Preparing..."
+    txstage: "Preparing...",
   });
   if (!context.state.connectedAddress) {
     throw Error("wallet not connected");
@@ -59,14 +59,16 @@ export async function contractDeploy(context: SunshineContextType) {
 
   console.log("initZkappInstance");
   const zkappPublicKey: PublicKey = PublicKey.fromBase58(
-    context.state.zkappPublicKeyBase58);
+    context.state.zkappPublicKeyBase58
+  );
   await zkappWorkerClient.initZkappInstance(zkappPublicKey);
   console.log("createDeployTransaction");
   if (!context.state.zkappPrivateKeyBase58) {
     throw Error("Private key is not defined");
   }
   const zkappPrivateKey: PrivateKey = PrivateKey.fromBase58(
-    context.state.zkappPrivateKeyBase58);
+    context.state.zkappPrivateKeyBase58
+  );
 
   await zkappWorkerClient.setSolution(zkappPublicKey, context.state.solution);
   await context.setState({
@@ -84,7 +86,7 @@ export async function contractDeploy(context: SunshineContextType) {
     console.log(e);
     await context.setState({
       ...context.state,
-      txstage: ""
+      txstage: "",
     });
     return;
   }
@@ -99,7 +101,7 @@ export async function contractDeploy(context: SunshineContextType) {
   } catch (e: any) {
     await context.setState({
       ...context.state,
-      txstage: ""
+      txstage: "",
     });
     return;
   }
@@ -124,7 +126,7 @@ export async function contractDeploy(context: SunshineContextType) {
   await context.setState({
     ...context.state,
     txstage: "",
-    txhash: hash
+    txhash: hash,
   });
   // toastSuccess("Transaction sent!");
 }
@@ -134,7 +136,7 @@ export async function contractSolve(context: SunshineContextType) {
   const transactionFee = 0.1;
   await context.setState({
     ...context.state,
-    txstage: "Preparing..."
+    txstage: "Preparing...",
   });
   if (!context.state.connectedAddress) {
     throw Error("wallet not connected");
@@ -146,7 +148,8 @@ export async function contractSolve(context: SunshineContextType) {
 
   console.log("initZkappInstance");
   const zkappPublicKey: PublicKey = PublicKey.fromBase58(
-    context.state.zkappPublicKeyBase58);
+    context.state.zkappPublicKeyBase58
+  );
   await zkappWorkerClient.fetchAccount(zkappPublicKey);
   await zkappWorkerClient.initZkappInstance(zkappPublicKey);
   console.log("createSolveTransaction");
@@ -156,15 +159,13 @@ export async function contractSolve(context: SunshineContextType) {
     txstage: "Building...",
   });
   try {
-    await zkappWorkerClient.claimPrize(
-      connectedAddress
-    );
+    await zkappWorkerClient.claimPrize(connectedAddress);
   } catch (e: any) {
     console.log("failed to create solve transaction!");
     console.log(e);
     await context.setState({
       ...context.state,
-      txstage: ""
+      txstage: "",
     });
     return;
   }
@@ -179,7 +180,7 @@ export async function contractSolve(context: SunshineContextType) {
   } catch (e: any) {
     await context.setState({
       ...context.state,
-      txstage: ""
+      txstage: "",
     });
     return;
   }
@@ -204,7 +205,7 @@ export async function contractSolve(context: SunshineContextType) {
   await context.setState({
     ...context.state,
     txstage: "",
-    txhash: hash
+    txhash: hash,
   });
   // toastSuccess("Transaction sent!");
 }
@@ -212,51 +213,59 @@ export async function contractSolve(context: SunshineContextType) {
 export const ComponentButtonDeploy = () => {
   const context: SunshineContextType = CastContext();
   if (context.compilationButtonState != 4) {
-    return (
-      <button className="btn btn-disabled">Deploy</button>
-    );
+    return <button className="btn btn-disabled">Deploy</button>;
   } else if (context.state.txstage !== "") {
-    return (
-      <button className="btn btn-disabled animate-pulse">Deploy</button>
-    );
+    return <button className="btn btn-disabled animate-pulse">Deploy</button>;
   } else {
     return (
-      <button className="btn" onClick={async () => {
-        console.log('add answer button clicked');
-        await contractDeploy(context);
-      }}>Deploy</button>
+      <button
+        className="btn"
+        onClick={async () => {
+          console.log("add answer button clicked");
+          await contractDeploy(context);
+        }}
+      >
+        Deploy
+      </button>
     );
   }
-}
+};
 
 export const ComponentLoadContract = () => {
   const context: SunshineContextType = CastContext();
   if (
     context.compilationButtonState === 0 ||
-    context.compilationButtonState === 1) {
-    return (
-      <button className="btn btn-disabled">Reload</button>
-    );
+    context.compilationButtonState === 1
+  ) {
+    return <button className="btn btn-disabled">Reload</button>;
   }
   return (
-    <button className="btn" onClick={async () => {
-      console.log('reload button clicked');
-      await contractRefreshState(context);
-    }}>Reload</button>
+    <button
+      className="btn"
+      onClick={async () => {
+        console.log("reload button clicked");
+        await contractRefreshState(context);
+      }}
+    >
+      Reload
+    </button>
   );
-}
+};
 
 export const ComponentSolve = () => {
   const context: SunshineContextType = CastContext();
   if (!context.state.correct) {
-    return (
-      <button className="btn btn-disabled">Solve</button>
-    );
+    return <button className="btn btn-disabled">Solve</button>;
   }
   return (
-    <button className="btn" onClick={async () => {
-      console.log('solve button clicked');
-      await contractSolve(context);
-    }}>Solve</button>
+    <button
+      className="btn"
+      onClick={async () => {
+        console.log("solve button clicked");
+        await contractSolve(context);
+      }}
+    >
+      Solve
+    </button>
   );
-}
+};
