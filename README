@@ -1,9 +1,3 @@
-Mina is a lightweight zero knowledge (ZK) blockchain. It is themost advanced ZK
-blockchain for proving anything privately and securely.
-
-We decided to utilize Mina's unique properties to enable any user to create their own quest Adven-true game using zk technology to verify that the player solved the clues correctly and are entitled to a specific reward.
-
-In our example we used Krakow as inspiration for the clues. We tried to make them easy enough to solve in a relatively short space of time. The reward for solving the puzzles is  1 (testnet) MINA.
-
-The concept has the potential to be expanded in many directions. 
-Eg, To create a global multi-player GEO-cache type adventure game, or on a less energetic level a way for users to ascertain they have completed a number of steps in order to be whitelisted for a certain rewards, or for example, to obtain a higher level of permissions into an online members club.
+Mina is a lightweight (22kb) zero knowledge blockchain. We decided to utilize Mina's unique properties to enable any user to create their own quest Adventrue game using zk technology to verify that the player solved the clues correctly and are entitled to a specific reward.
+In our example we used Krakow as inspiration for the clues. We tried to make them easy enough to solve in a relatively short space of time. The reward for solving the puzzles can be anything, a MINA NFT, some spicy testnet MINA, or even a physical prize.
+The concept has the potential to be expanded in many directions (Eg to create a global multi-player GEO-cache type adventure game integrating proof of geolocation)
