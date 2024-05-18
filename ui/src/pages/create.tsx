@@ -8,7 +8,8 @@ import {
   InformConnectWallet,
   RenderAnswer,
   RenderSK,
-  InformTXBuilding
+  InformTXBuilding,
+  InformTXHash
 } from "../components/Info";
 
 import {
@@ -35,6 +36,7 @@ export default function Create() {
       <RenderSK/>
       <ComponentGenerateSK/>
       <InformTXBuilding/>
+      <InformTXHash/>
       <ComponentButtonDeploy/>
     </article>);
 }

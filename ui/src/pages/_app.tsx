@@ -131,6 +131,7 @@ export default function App({ Component, pageProps }: AppProps) {
     runCompile: runCompile,
     connectWallet: connectWallet,
     txstage: "",
+    txhash: "",
     connectedAddress: ""
   }
   let [state, setState] = useState(initial_state);

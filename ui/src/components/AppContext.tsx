@@ -25,6 +25,7 @@ export type SunshineContextStateType = {
   runCompile: Function;
   connectWallet: Function;
   txstage: string;
+  txhash: string;
   connectedAddress: string;
 }
 

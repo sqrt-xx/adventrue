@@ -59,6 +59,25 @@ export const InformTXBuilding = () => {
   }
 }
 
+export const InformTXHash = () => {
+  const context: SunshineContextType = CastContext();
+  if (!context.state.txhash) {
+    return (
+      <p>Currently no transaction was submitted yet...</p>
+    );
+  } else {
+    let url = "https://minascan.io/devnet/tx/" + context.state.txhash;
+    return (
+      <div>
+      Your last transaction is{" "}
+      <a href={url} target="_blank" rel="noreferrer">
+        {context.state.txhash}
+      </a>
+      </div>
+    );
+  }
+}
+
 export const RenderAnswer = () => {
   const context: SunshineContextType = CastContext();
   console.log("solution is", context.state.solution);

@@ -107,7 +107,8 @@ export async function contractDeploy(context: SunshineContextType) {
   // await context.setTxHash(hash);
   await context.setState({
     ...context.state,
-    txstage: ""
+    txstage: "",
+    txhash: hash
   });
   // toastSuccess("Transaction sent!");
 }
@@ -117,6 +118,10 @@ export const ComponentButtonDeploy = () => {
   if (context.compilationButtonState != 4) {
     return (
       <button className="btn btn-disabled">Deploy</button>
+    );
+  } else if (context.state.txstage !== "") {
+    return (
+      <button className="btn btn-disabled animate-pulse">Deploy</button>
     );
   } else {
     return (
