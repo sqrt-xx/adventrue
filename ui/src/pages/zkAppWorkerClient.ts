@@ -21,11 +21,9 @@ export default class ZkappWorkerClient {
     return this._call("compileContract", {});
   }
 
-  async fetchAccount({
-    publicKey,
-  }: {
-    publicKey: PublicKey;
-  }): ReturnType<typeof fetchAccount> {
+    async fetchAccount(
+        publicKey: PublicKey
+    ): ReturnType<typeof fetchAccount> {
     return await this._callFetchAccount("fetchAccount", {
       publicKey58: publicKey.toBase58(),
     });
@@ -65,10 +63,20 @@ export default class ZkappWorkerClient {
   async setSolution(contractPublicKey58: PublicKey, answers: string[]) {
     const result = await this._call("setSolution", {
       contractPublicKey58: contractPublicKey58.toBase58(),
-      answers: answers,
+      answers: args.answers,
     });
     return result;
-  }
+    }
+
+    async getCommitmentFromSolution(
+        contractPublicKey58: PublicKey, answers: string[]
+    ) {
+        const result = await this._call("getCommitmentFromSolution", {
+            contractPublicKey58: contractPublicKey58.toBase58(),
+            answers: answers,
+        });
+        return result;
+    }
 
   async fundPrize(
     actorPublicKey: PublicKey,

@@ -62,10 +62,13 @@ const functions = {
     state.zkapp = new state.Quest!(publicKey);
   },
   getContractState: async (args: {}) => {
-    const commitment: Field = await state.zkapp!.commitment.get();
+      const commitment: Field = await state.zkapp!.commitment.get();
+      console.log('worker: commitment is', commitment);
+      console.log('worker: balance is', state.zkapp!.account.balance.get().toBigInt());
+      console.log('worker: balance is', state.zkapp!.account.balance.get().toString());
     return JSON.stringify({
       commitment: commitment.toString(),
-      prize: state.zkapp!.account.balance.get().toBigInt(),
+        prize: Number(state.zkapp!.account.balance.get().toBigInt()),
     });
   },
   createDeployTransaction: async (args: {
@@ -114,6 +117,22 @@ const functions = {
     );
     state.solution = new state.Solution!(zkAppPublicKey, args.answers);
   },
+    getCommitmentFromSolution: async (args: {
+        contractPublicKey58: string;
+        answers: string[];
+    }) => {
+        const zkAppPublicKey: PublicKey = PublicKey.fromBase58(
+            args.contractPublicKey58
+        );
+        console.log('args publickey', args.contractPublicKey58);
+        console.log('args answers', args.answers);
+        let solution: state.Solution = new state.Solution!(zkAppPublicKey, args.answers);
+        console.log('worker ', solution);
+        console.log('worker solution solution ', solution.solution());
+        console.log('worker solution commitment ', solution.commitment());
+
+        return solution.commitment().toString();
+    },
   fundPrize: async (args: {
     actorPublicKey58: string;
     contractPublicKey58: string;

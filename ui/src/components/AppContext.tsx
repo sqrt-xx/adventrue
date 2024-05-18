@@ -18,8 +18,11 @@ export type SunshineContextStateType = {
   zkappWorkerClient: ZkappWorkerClient | null;
   zkappPublicKeyBase58: string;
   zkappPrivateKeyBase58: string;
+  address_correct: boolean;
   solution: string[];
   answer: string;
+  commitment: string;
+  correct: boolean;
   prize: number;
   runLoadO1js: Function;
   runCompile: Function;

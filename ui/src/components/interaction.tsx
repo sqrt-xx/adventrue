@@ -3,6 +3,8 @@ import {
   PrivateKey
 } from "o1js";
 
+import { useRouter } from 'next/router';
+
 import {
   SunshineContextType,
   ContractStateType,
@@ -16,13 +18,26 @@ import ZkappWorkerClient from "../pages/zkAppWorkerClient";
 async function contractRefreshState(context: SunshineContextType) {
   const zkappWorkerClient: ZkappWorkerClient = castZkAppWorkerClient(context);
 
+  // load contract
+  const zkappPublicKey: PublicKey = PublicKey.fromBase58(
+    context.state.zkappPublicKeyBase58);
+
+  await zkappWorkerClient.fetchAccount(zkappPublicKey);
+  await zkappWorkerClient.initZkappInstance(zkappPublicKey);
   // refresh the contract state
   const contract_state = await zkappWorkerClient.getContractState();
+  console.log('contract state is', contract_state);
   const contract_state_parsed = JSON.parse(contract_state) as ContractStateType;
-  console.log(contract_state_parsed);
+  console.log('contract state parsed is', contract_state_parsed);
+
+  let ref_commitment: string = await zkappWorkerClient.getCommitmentFromSolution(
+    zkappPublicKey, context.state.solution);
+  console.log('ref commitment is', ref_commitment);
   context.setState({
     ...context.state,
-    prize: contract_state_parsed.prize
+    commitment: contract_state_parsed.commitment,
+    prize: contract_state_parsed.prize,
+    correct: contract_state_parsed.commitment === ref_commitment
   });
 }
 
@@ -131,4 +146,19 @@ export const ComponentButtonDeploy = () => {
       }}>Deploy</button>
     );
   }
+}
+
+export const ComponentLoadContract = () => {
+  const context: SunshineContextType = CastContext();
+  if (context.compilationButtonState < 2) {
+    return (
+      <button className="btn btn-disabled">Reload</button>
+    );
+  }
+  return (
+    <button className="btn" onClick={async () => {
+      console.log('reload button clicked');
+      await contractRefreshState(context);
+    }}>Reload</button>
+  );
 }

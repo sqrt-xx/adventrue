@@ -78,6 +78,18 @@ export const InformTXHash = () => {
   }
 }
 
+export const InformAddressCorrect = () => {
+  const context: SunshineContextType = CastContext();
+  if (context.state.address_correct) {
+    return (
+      <p>MINA contract address is valid.</p>
+    );
+  }
+  return (
+    <p>MINA contract address is not valid.</p>
+  );
+}
+
 export const RenderAnswer = () => {
   const context: SunshineContextType = CastContext();
   console.log("solution is", context.state.solution);
@@ -104,5 +116,24 @@ export const RenderSK = () => {
   }
   return (
     <p>The contract PrivateKey is going to be <i>{context.state.zkappPrivateKeyBase58}</i> and PublicKey (address) is going to be <i>{context.state.zkappPublicKeyBase58}</i></p>
+  );
+}
+
+export const RenderSolution = () => {
+  const context: SunshineContextType = CastContext();
+  console.log('render solution: commitment', context.state.commitment);
+  console.log('render solution: prize', context.state.prize);
+  if (!context.state.commitment || context.state.solution.length === 0) {
+    return (
+      <p>Load contract first and submit solution</p>
+    );
+  }
+  if (context.state.correct) {
+    return (
+      <p>Congrats! Your solution is correct! You solved the puzzle!</p>
+    );
+  }
+  return (
+    <p>The solution is not correct.</p>
   );
 }
