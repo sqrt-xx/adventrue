@@ -126,7 +126,7 @@ const functions = {
         );
         console.log('args publickey', args.contractPublicKey58);
         console.log('args answers', args.answers);
-        let solution: state.Solution = new state.Solution!(zkAppPublicKey, args.answers);
+        let solution: Solution = new state.Solution!(zkAppPublicKey, args.answers);
         console.log('worker ', solution);
         console.log('worker solution solution ', solution.solution());
         console.log('worker solution commitment ', solution.commitment());

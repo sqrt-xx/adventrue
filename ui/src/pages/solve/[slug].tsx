@@ -36,33 +36,29 @@ export default function Solve() {
   const router = useRouter()
 
   useEffect(() => {
-    try {
-      const zkappPublicKey = PublicKey.fromBase58(router.query.slug);
-      context.setState({
-        ...context.state,
-        address_correct: true,
-        zkappPublicKeyBase58: zkappPublicKey.toBase58(),
-      });
-    } catch (e) {
-      console.log(e);
-      context.setState({ ...context.state, address_correct: false });
+    let slug: string | undefined;
+
+    if (typeof router.query.slug === 'string') {
+      slug = router.query.slug;
+    } else if (Array.isArray(router.query.slug)) {
+      slug = router.query.slug[0]; // or handle array case as needed
+    }
+
+    if (slug) {
+      try {
+        const zkappPublicKey = PublicKey.fromBase58(slug);
+        context.setState({
+          ...context.state,
+          address_correct: true,
+          zkappPublicKeyBase58: zkappPublicKey.toBase58(),
+        });
+      } catch (e) {
+        console.log(e);
+        context.setState({ ...context.state, address_correct: false });
+      }
     }
   }, [router.query.slug]);
 
-  /*
-  try {
-    const zkappPublicKey: PublicKey = PublicKey.fromBase58(
-      context.state.zkappPublicKeyBase58);
-    context.setState({
-      ...context.state,
-      address_correct: true,
-      zkappPublicKeyBase58: zkappPublicKey.toBase58()
-    });
-  } catch (e: any) {
-    console.log(e);
-    context.setState({...context.state, address_correct: false});
-  }
-  */
   return (
     <article className="container gap-8 prose">
       <h1>Solve an existing puzzle</h1>
