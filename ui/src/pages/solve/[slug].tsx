@@ -15,7 +15,9 @@ import {
   InformConnectWallet,
   InformAddressCorrect,
   RenderAnswer,
-  RenderSolution
+  RenderSolution,
+  InformTXBuilding,
+  InformTXHash
 } from "../../components/Info";
 
 import {
@@ -25,7 +27,8 @@ import {
 } from "../../components/editing";
 
 import {
-  ComponentLoadContract
+  ComponentLoadContract,
+  ComponentSolve
 } from "../../components/interaction";
 
 export default function Solve() {
@@ -65,13 +68,16 @@ export default function Solve() {
       <h1>Solve an existing puzzle</h1>
       <p>Contract address: {router.query.slug}</p>
       <InformAddressCorrect/>
-        <InformO1JSCompilation/>
-        <InformConnectWallet/>
-        <RenderAnswer/>
-        <ComponentAnswerEditor/>
-        <ComponentAnswerReset/>
-        <ComponentAnswerAdd/>
-        <RenderSolution/>
-        <ComponentLoadContract/>
+      <InformO1JSCompilation/>
+      <InformConnectWallet/>
+      <RenderAnswer/>
+      <ComponentAnswerEditor/>
+      <ComponentAnswerReset/>
+      <ComponentAnswerAdd/>
+      <RenderSolution/>
+      <ComponentLoadContract/>
+      <InformTXBuilding/>
+      <InformTXHash/>
+      <ComponentSolve/>
     </article>);
 }
