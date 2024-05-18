@@ -57,6 +57,21 @@ export const ComponentAnswerEditor = () => {
   );
 }
 
+export const ComponentPrizeEditor = () => {
+  const context: SunshineContextType = CastContext();
+  return (
+    <input
+      className="input input-bordered w-full max-w-xl"
+      name="mina_prize"
+      type="number"
+      value={context.state.prize}
+      onChange={(event: React.SyntheticEvent) => {
+        context.setState({...context.state, prize: (event.target as any).value});
+      }}
+    />
+  );
+}
+
 export const ComponentAnswerAdd = () => {
   const context: SunshineContextType = CastContext();
   console.log("answer is", context.state.answer);

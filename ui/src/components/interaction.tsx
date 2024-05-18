@@ -61,7 +61,7 @@ export async function contractDeploy(context: SunshineContextType) {
     await zkappWorkerClient.createDeployTransaction(
       zkappPrivateKey,
       connectedAddress,
-      context.state.prize
+      Number(context.state.prize)
     );
   } catch (e: any) {
     console.log("failed to create deploy transaction!");

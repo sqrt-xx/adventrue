@@ -16,7 +16,8 @@ import {
   ComponentAnswerReset,
   ComponentAnswerEditor,
   ComponentAnswerAdd,
-  ComponentGenerateSK
+  ComponentGenerateSK,
+  ComponentPrizeEditor
 } from "../components/editing";
 
 import {
@@ -33,10 +34,12 @@ export default function Create() {
       <ComponentAnswerEditor/>
       <ComponentAnswerReset/>
       <ComponentAnswerAdd/>
-      <RenderSK/>
-      <ComponentGenerateSK/>
-      <InformTXBuilding/>
-      <InformTXHash/>
-      <ComponentButtonDeploy/>
+      <p>The MINA prize is:</p>
+      <ComponentPrizeEditor/>
+        <RenderSK/>
+        <ComponentGenerateSK/>
+        <InformTXBuilding/>
+        <InformTXHash/>
+        <ComponentButtonDeploy/>
     </article>);
 }
