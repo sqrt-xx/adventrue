@@ -61,7 +61,7 @@ export default class ZkappWorkerClient {
   async setSolution(contractPublicKey58: PublicKey, answers: string[]) {
     const result = await this._call("setSolution", {
       contractPublicKey58: contractPublicKey58.toBase58(),
-      answers: answers,
+      answers: answers.map((word) => word.trim().toLowerCase()),
     });
     return result;
   }
@@ -72,7 +72,7 @@ export default class ZkappWorkerClient {
   ) {
     const result = await this._call("getCommitmentFromSolution", {
       contractPublicKey58: contractPublicKey58.toBase58(),
-      answers: answers,
+      answers: answers.map((word) => word.trim().toLowerCase()),
     });
     return result;
   }
