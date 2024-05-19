@@ -237,7 +237,7 @@ export const ComponentLoadContract = () => {
     context.compilationButtonState === 0 ||
     context.compilationButtonState === 1
   ) {
-    return <button className="btn btn-disabled">Reload</button>;
+    return <button className="btn btn-disabled">Check</button>;
   }
   return (
     <button
@@ -247,7 +247,7 @@ export const ComponentLoadContract = () => {
         await contractRefreshState(context);
       }}
     >
-      Reload
+      Check
     </button>
   );
 };
