@@ -4,6 +4,7 @@ const nextConfig = {
   swcMinify: true,
 
 
+    pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
     /*
   webpack(config) {
     config.resolve.alias = {
