@@ -44,7 +44,27 @@ const Layout = ({ children }: { children: ReactNode }) => {
               >
                 Marek
               </a>
-              , Midori, Pete and zkGeorge for{" "}
+              ,{" "}
+              <a href="/pepe_hacker.png" target="_blank" rel="noreferrer">
+                Midori
+              </a>
+              ,{" "}
+              <a
+                href="https://x.com/minacryptocom"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Pete
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://x.com/georgethms1"
+                target="_blank"
+                rel="noreferrer"
+              >
+                zkGeorge
+              </a>{" "}
+              for{" "}
               <a href="zkkrakow.com" target="_blank" rel="noreferrer">
                 zkHack Krakow
               </a>

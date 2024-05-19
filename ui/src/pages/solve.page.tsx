@@ -9,7 +9,7 @@ const EntrySecretKey = () => {
     "zkApp public key",
     "base58pk",
     "Required for interaction",
-    "pk"
+    ""
   );
 };
 
@@ -27,9 +27,9 @@ export default function Solve() {
   console.log(typeof router);
   return (
     <article className="container gap-8 prose">
-      <h1>Solve an existing puzzle</h1>
+      <h1>Solve an existing Adventrue puzzle</h1>
       <p>
-        Every zkSunshine puzzle is a MINA smart contract which can be identified
+        Every puzzle is a MINA smart contract which can be identified
         by a MINA public key.
       </p>
       <form
