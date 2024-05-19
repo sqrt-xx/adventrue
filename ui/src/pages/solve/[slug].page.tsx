@@ -11,6 +11,7 @@ import {
   InformAddressCorrect,
   RenderAnswer,
   RenderSolution,
+  RenderPrize,
   InformTXBuilding,
   InformTXHash,
 } from "../../components/Info";
@@ -66,6 +67,7 @@ export default function Solve() {
       <ComponentAnswerReset />
       <ComponentAnswerAdd />
       <RenderSolution />
+      <RenderPrize />
       <ComponentLoadContract />
       <InformTXBuilding />
       <InformTXHash />

@@ -24,6 +24,7 @@ export type SunshineContextStateType = {
   commitment: string;
   correct: boolean;
   prize: number;
+  prize_float: number;
   runLoadO1js: Function;
   runCompile: Function;
   connectWallet: Function;

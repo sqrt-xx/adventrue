@@ -130,6 +130,7 @@ export default function App({ Component, pageProps }: AppProps) {
     commitment: "",
     correct: false,
     prize: 0,
+    prize_float: 0.0,
     runLoadO1js: runLoadO1js,
     runCompile: runCompile,
     connectWallet: connectWallet,

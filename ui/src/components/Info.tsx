@@ -104,6 +104,23 @@ export const RenderSK = () => {
   );
 };
 
+export const RenderPrize = () => {
+  const context: SunshineContextType = CastContext();
+  let prize: number = context.state.prize / 1000000000;
+  if (!context.state.commitment) {
+    return <p>Load contract to check the funded prize.</p>;
+  }
+  if (context.state.prize === 0) {
+    return (
+      <p>
+        Unfortunately the prize is 0 MINA, someone already won it or it has not
+        been funded yet.
+      </p>
+    );
+  }
+  return <p>The funded prize for this Adventrue is {prize} MINA.</p>;
+};
+
 export const RenderSolution = () => {
   const context: SunshineContextType = CastContext();
   console.log("render solution: commitment", context.state.commitment);

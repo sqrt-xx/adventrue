@@ -73,11 +73,16 @@ export const ComponentPrizeEditor = () => {
       className="input input-bordered w-full max-w-xl"
       name="mina_prize"
       type="number"
-      value={context.state.prize}
+      value={context.state.prize_float}
       onChange={(event: React.SyntheticEvent) => {
+        let prize: number = Math.round(
+          (event.target as any).value * 1000000000
+        );
+        console.log("prize is", prize);
         context.setState({
           ...context.state,
-          prize: (event.target as any).value,
+          prize: prize,
+          prize_float: (event.target as any).value,
         });
       }}
     />
