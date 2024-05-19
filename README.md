@@ -4,8 +4,8 @@ Mina is a lightweight (22kb) zero knowledge blockchain with smart contract funct
 
 In our example we used Krakow as inspiration for the questions. We tried to make them easy enough to solve in a relatively short space of time. The reward for solving the puzzles can theoretically be anything, some spicy testnet MINA (in this scenario), a MINA NFT, or even a physical prize.
 
-The concept has the potential to be expanded in many directions. We were working on integrating zkLocus (Mina zkApp project), or another mechanism to act as a proof of geolocation, but were unable to fully incorporate in the time constraints. Further modifications to the PoC could include utilising Protokit to manage progress through the game with on-chain state updated after each question rather than just at the end, and potentially time-sensitive contracts (E.g. 10 blocks time window for completion = 30 minutes on Mina devnet). 
+The concept has the potential to be expanded in many directions. Another possible mechanism if we had more time would be to integrate zkLocus (Mina zkApp project), or another proof of geolocation, to ensure users are at the actual location. Further modifications to the PoC could include utilising Protokit to manage progress through the game with on-chain state updated after each question rather than just at the end, and potentially time-sensitive contracts (E.g. 10 blocks time window for completion = 30 minutes on Mina devnet). 
 
 <p align="center">
-  <img src="https://github.com/sqrt-xx/adventrue/assets/37027892/b21c6006-d361-4bd1-a5db-97dcdf08158f" width="250" height="250">
+  <img src="https://github.com/sqrt-xx/adventrue/assets/37027892/b21c6006-d361-4bd1-a5db-97dcdf08158f" width="750" height="750">
 
