@@ -7,5 +7,4 @@ In our example we used Krakow as inspiration for the questions. We tried to make
 The concept has the potential to be expanded in many directions. Another possible mechanism if we had more time would be to integrate zkLocus (Mina zkApp project), or another proof of geolocation, to ensure users are at the actual location. Further modifications to the PoC could include utilising Protokit to manage progress through the game with on-chain state updated after each question rather than just at the end, and potentially time-sensitive contracts (E.g. 10 blocks time window for completion = 30 minutes on Mina devnet). 
 
 <p align="center">
-  <img src="https://github.com/sqrt-xx/adventrue/assets/37027892/b21c6006-d361-4bd1-a5db-97dcdf08158f" width="750" height="750">
-
+  <img src="https://github.com/sqrt-xx/adventrue/assets/37027892/aac3b126-b1d3-4abd-a3e3-a3d247fe69eb" width="750" height="750">
