@@ -7,19 +7,20 @@ export default function Home() {
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content text-center">
           <div className="max-w-md">
-            <h1 className="text-5xl font-bold">Hello there!</h1>
+            <h1 className="text-5xl font-bold">It's time for an Adventrue!</h1>
             <p className="py-6">
-              I am <i>MAC!</i>, or <i>Mina Arbitrated Contracts</i> if you want
-              to be formal. I am an <a href="">zkApp</a> that makes zkApps (yes,
-              really!).
+              I am an application which allows you to deploy and interact with
+              scavenge hunting games running on MINA network.
             </p>
             <Link href="/create">
-              <button className="btn btn-primary">Get Started</button>
+              <button className="btn btn-primary">
+                Create your Adventrue!
+              </button>
             </Link>
             <p>
-              The best part is you do not even need to know how to code! If you
-              are confused check the <Link href="/about">about page</Link> to
-              learn more!
+              You can use me to create new games, fund the prize and spread
+              clues around to promote your town or business. Check the{" "}
+              <Link href="/about">about page</Link> to learn more!
             </p>
           </div>
         </div>
