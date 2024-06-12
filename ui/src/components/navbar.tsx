@@ -12,7 +12,7 @@ const CircuitCompileButton = () => {
           context.state.runLoadO1js(context);
         }}
       >
-        Load o1js
+        Connect to DevNet
       </button>
     );
   } else if (context.compilationButtonState === 1) {
@@ -51,7 +51,7 @@ const ConnectButton = () => {
           context.state.connectWallet(context);
         }}
       >
-        Connect
+        Connect AuroWallet
       </button>
     );
   } else if (context.connectionButtonState === 1) {
@@ -67,7 +67,7 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
-        <div className="dropdown">
+        <div className="dropdown z-10">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
