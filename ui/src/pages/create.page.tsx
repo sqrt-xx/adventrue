@@ -1,6 +1,7 @@
 import { SunshineContextType, CastContext } from "../components/AppContext";
 
 import {
+  ContractQRCode,
   InformO1JSCompilation,
   InformConnectWallet,
   RenderAnswer,
@@ -32,6 +33,7 @@ export default function Create() {
       <p>The MINA prize is:</p>
       <ComponentPrizeEditor />
       <RenderSK />
+      <ContractQRCode />
       <ComponentGenerateSK />
       <InformTXBuilding />
       <InformTXHash />

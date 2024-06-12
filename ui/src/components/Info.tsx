@@ -1,4 +1,15 @@
+import QRCode from "react-qr-code";
+
 import { SunshineContextType, CastContext } from "../components/AppContext";
+
+export const ContractQRCode = () => {
+  const context: SunshineContextType = CastContext();
+  if (context.state.zkappPublicKeyBase58 !== "") {
+    const url: string =
+      "https://adventrue.org/solve/" + context.state.zkappPublicKeyBase58;
+    return <QRCode value={url} />;
+  }
+};
 
 export const InformO1JSCompilation = () => {
   const context: SunshineContextType = CastContext();
