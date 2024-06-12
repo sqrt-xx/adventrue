@@ -15,19 +15,19 @@
     "@tailwindcss/typography": "^0.5.8",
     "@types/node": "20.12.12",
     "@types/react": "18.3.2",
-      "@types/react-dom": "18.3.0",
-      "@yudiel/react-qr-scanner": "2.0.3",
+    "@types/react-dom": "18.3.0",
+    "@yudiel/react-qr-scanner": "2.0.3",
     "autoprefixer": "10.4.19",
     "daisyui": "4.10.2",
     "next": "13.4.2",
     "postcss": "8.4.38",
     "react": "18.3.1",
-      "react-dom": "18.3.1",
-      "react-qr-code": "2.0.14",
+    "react-dom": "18.3.1",
+    "react-qr-code": "2.0.14",
     "tailwindcss": "3.4.3",
     "typescript": "5.4.3",
     "prettier": "^2.3.2",
     "o1js": "1.1.0",
-      "sunshine-contracts": "/Users/marek/Development/open-source/zk-sunshine/investigate-sunshine/contracts/investigate-sunshine-0.1.5.tgz"
+    "sunshine-contracts": "/Users/marek/Development/open-source/zk-sunshine/investigate-sunshine/contracts/investigate-sunshine-0.1.5.tgz"
   }
 }

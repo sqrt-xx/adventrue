@@ -17,7 +17,7 @@ const CircuitCompileButton = () => {
     );
   } else if (context.compilationButtonState === 1) {
     return (
-      <button className="btn btn-disabled animate-pulse">Loading o1js</button>
+      <button className="btn btn-disabled animate-pulse">Connecting to DevNet...</button>
     );
   } else if (context.compilationButtonState === 2) {
     return (
