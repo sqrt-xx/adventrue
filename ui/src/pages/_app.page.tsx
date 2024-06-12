@@ -122,6 +122,7 @@ async function connectWallet(context: SunshineContextType) {
 export default function App({ Component, pageProps }: AppProps) {
   const initial_state: SunshineContextStateType = {
     zkappWorkerClient: null,
+    zkappPublicKeyBase58Candidate: "",
     zkappPublicKeyBase58: "",
     zkappPrivateKeyBase58: "",
     address_correct: false,
@@ -137,6 +138,8 @@ export default function App({ Component, pageProps }: AppProps) {
     txstage: "",
     txhash: "",
     connectedAddress: "",
+    qr_scanner_on: false,
+    qr_scanner_error: "",
   };
   let [state, setState] = useState(initial_state);
   let [compilationButtonState, setCompilationButtonState] = useState(0);

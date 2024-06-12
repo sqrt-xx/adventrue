@@ -16,6 +16,7 @@ import ZkappWorkerClient from "../pages/zkAppWorkerClient";
 */
 export type SunshineContextStateType = {
   zkappWorkerClient: ZkappWorkerClient | null;
+  zkappPublicKeyBase58Candidate: string;
   zkappPublicKeyBase58: string;
   zkappPrivateKeyBase58: string;
   address_correct: boolean;
@@ -31,6 +32,8 @@ export type SunshineContextStateType = {
   txstage: string;
   txhash: string;
   connectedAddress: string;
+  qr_scanner_on: boolean;
+  qr_scanner_error: string;
 };
 
 export type SunshineContextType = {

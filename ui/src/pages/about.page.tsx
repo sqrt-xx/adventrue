@@ -34,26 +34,33 @@ export default function About() {
           could be applied.
         </p>
       </div>
-      <h2>
-        How to play
-      </h2>
+      <h2>How to play</h2>
       <ol>
         <li>Install Auro Wallet</li>
         <li>Switch to devnet on Auto Wallet</li>
         <li>Scan QR code on poster</li>
         <li>Click 'Load o1js' button</li>
         <li>Click 'Connect'</li>
-        <li>Solve the puzzles on the posters 1 to 4 and submit the answers in turn 1 to 4.</li>
-        <li>Click the 'Check' button on the website to see if your answers are correct</li>
+        <li>
+          Solve the puzzles on the posters 1 to 4 and submit the answers in turn
+          1 to 4.
+        </li>
+        <li>
+          Click the 'Check' button on the website to see if your answers are
+          correct
+        </li>
         <li>Click 'compile' button (this takes around 2 mins)</li>
         <li>Click 'Solve'</li>
-        <li>Auro Wallet will pop out and click 'Approve / Send' on the Wallet</li>
-        <li>To see if you have won the prize check the link provided in the Mina Explorer</li>
+        <li>
+          Auro Wallet will pop out and click 'Approve / Send' on the Wallet
+        </li>
+        <li>
+          To see if you have won the prize check the link provided in the Mina
+          Explorer
+        </li>
         <li>That's it!</li>
       </ol>
-      <h2>
-        How to create your own adventrue
-      </h2>
+      <h2>How to create your own adventrue</h2>
       <ol>
         <li>install Auro Wallet</li>
         <li>Switch to devnet on Auto Wallet</li>
@@ -61,35 +68,53 @@ export default function About() {
         <li>Click 'Connect'</li>
         <li>Click 'Compile'</li>
         <li>Add answers (as many as you need) - case insensitive.</li>
-        <li>Select Mina prize (if you don't have enough funds the transaction (game) will fail.</li>
-        <li>Click 'Generate Private Key'. It will show private and public key, back these up somewhere safe</li>
+        <li>
+          Select Mina prize (if you don't have enough funds the transaction
+          (game) will fail.
+        </li>
+        <li>
+          Click 'Generate Private Key'. It will show private and public key,
+          back these up somewhere safe
+        </li>
         <li>Click 'Deploy'</li>
         <li>Wait around 2 mins for the transaction to be approved</li>
         <li>Approve transaction in Auro Wallet pop up</li>
         <li>The game will generate a URL to the Block explorer</li>
-        <li>Your URL is created the link will be. adventrue.org/solve/PUBLICKEY</li>
+        <li>
+          Your URL is created the link will be. adventrue.org/solve/PUBLICKEY
+        </li>
         <li>You can there share with your contestants</li>
       </ol>
-      <h2>
-        Links
-      </h2>
+      <h2>Links</h2>
       <ol>
-        <li><a
-              href="https://play.google.com/store/apps/details?id=com.aurowallet.www.aurowallet&hl=en&gl=US"
-              target="_blank"
-              rel="noreferrer"
-            >AURO wallet for Android</a></li>
-        <li><a
-              href="https://play.google.com/store/apps/details?id=com.aurowallet.www.aurowallet&hl=en&gl=US"
-              target="_blank"
-              rel="noreferrer"
-            >AURO wallet for iPhone</a></li>
-        <li><a
-              href="https://www.aurowallet.com/"
-              target="_blank"
-              rel="noreferrer"
-            >AURO wallet for the browser</a></li>
+        <li>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.aurowallet.www.aurowallet&hl=en&gl=US"
+            target="_blank"
+            rel="noreferrer"
+          >
+            AURO wallet for Android
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.aurowallet.www.aurowallet&hl=en&gl=US"
+            target="_blank"
+            rel="noreferrer"
+          >
+            AURO wallet for iPhone
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.aurowallet.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            AURO wallet for the browser
+          </a>
+        </li>
       </ol>
     </article>
-        );
+  );
 }

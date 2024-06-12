@@ -22,10 +22,7 @@ export default function Home() {
               clues around to promote your town or business. Check the{" "}
               <Link href="/about">about page</Link> to learn more!
             </p>
-            <img
-              alt="dragon logo"
-              src="/dragon.jpg"
-            />
+            <img alt="dragon logo" src="/dragon.jpg" />
           </div>
         </div>
       </div>
