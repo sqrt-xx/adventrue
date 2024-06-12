@@ -104,7 +104,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <div className="dropdown">
+        <div className="dropdown z-10">
           <label tabIndex={1} className="btn btn-ghost">
             <Link href="">Adventrue</Link>
           </label>
